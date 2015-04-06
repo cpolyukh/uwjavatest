@@ -3,13 +3,34 @@ package com.tedneward.example;
 import java.beans.*;
 import java.util.*;
 
-public class Person {
+public class Person implements Comparable<Person>{
   private int age;
   private String name;
   private double salary;
   private String ssn;
   private boolean propertyChangeFired = false;
   private static int count;
+
+/*Make Person be Comparable, such that when I compare two Persons, they arrange themselves by
+salary in reverse order (salary 150000 is less than salary 10000). (Rich people to the front!)*/
+
+  public int compareTo(Person other) {
+    double salaryDifference = other.salary - salary;
+    
+    if (salaryDifference < 0) {
+      return -1;
+    } else if (salaryDifference > 0) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  public static class AgeComparator implements Comparator<Person> {
+    public int compare(Person person1, Person person2) {
+      return person1.age - person2.age;
+    }
+  }
   
   public Person() {
     this("", 0, 0.0d);
