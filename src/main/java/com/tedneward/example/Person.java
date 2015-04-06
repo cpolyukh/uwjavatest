@@ -23,7 +23,7 @@ public class Person implements Comparable<Person> {
     }
   }
 
-  public static class AgeComparator implements Comparator/*<Person>*/ {
+  public static class AgeComparator implements Comparator<Person> {
     public int compare(Person person1, Person person2) {
       return person1.age - person2.age;
     }
@@ -31,10 +31,10 @@ public class Person implements Comparable<Person> {
   
   public ArrayList<Person> getNewardFamily() {
     return new ArrayList<Person>() {{
-      add(new Person("Ted", 41, 250000);
-      add(new Person("Charlotte", 43, 150000);
-      add(new Person("Michael", 22, 10000);
-      add(new Person("Matthew", 15, 0);
+      add(new Person("Ted", 41, 250000));
+      add(new Person("Charlotte", 43, 150000));
+      add(new Person("Michael", 22, 10000));
+      add(new Person("Matthew", 15, 0));
     }};
   }
   
@@ -119,7 +119,7 @@ public class Person implements Comparable<Person> {
     if (other instanceof Person) {
       Person otherPerson = (Person)other;
       if (otherPerson.name != null && this.name != null) {
-        return (this.name.equals(other.name) && this.age = other.age);
+        return (this.name.equals(other.name) && this.age == other.age);
       }
     }
     return false;
