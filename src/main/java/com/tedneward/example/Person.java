@@ -3,17 +3,14 @@ package com.tedneward.example;
 import java.beans.*;
 import java.util.*;
 
-public class Person implements Comparable<Person>{
+public class Person implements Comparable<Person> {
   private int age;
   private String name;
   private double salary;
   private String ssn;
   private boolean propertyChangeFired = false;
   private static int count;
-
-/*Make Person be Comparable, such that when I compare two Persons, they arrange themselves by
-salary in reverse order (salary 150000 is less than salary 10000). (Rich people to the front!)*/
-
+  
   public int compareTo(Person other) {
     double salaryDifference = other.salary - salary;
     
@@ -26,10 +23,19 @@ salary in reverse order (salary 150000 is less than salary 10000). (Rich people 
     }
   }
 
-  public static class AgeComparator implements Comparator<Person> {
+  public static class AgeComparator implements Comparator/*<Person>*/ {
     public int compare(Person person1, Person person2) {
       return person1.age - person2.age;
     }
+  }
+  
+  public ArrayList<Person> getNewardFamily() {
+    return new ArrayList<Person>() {{
+      add(new Person("Ted", 41, 250000);
+      add(new Person("Charlotte", 43, 150000);
+      add(new Person("Michael", 22, 10000);
+      add(new Person("Matthew", 15, 0);
+    }};
   }
   
   public Person() {
@@ -43,7 +49,10 @@ salary in reverse order (salary 150000 is less than salary 10000). (Rich people 
     count++;
   }
 
-  public int getAge() { return age; }
+  public int getAge() {
+    return age;
+  }
+  
   public void setAge(int age) { 
     if (age < 0) {
       throw new IllegalArgumentException();
@@ -51,7 +60,10 @@ salary in reverse order (salary 150000 is less than salary 10000). (Rich people 
     this.age = age;
   }
   
-  public String getName() { return name; }
+  public String getName() {
+    return name;
+  }
+  
   public void setName(String name) {
     if (name == null) {
       throw new IllegalArgumentException();
@@ -59,34 +71,18 @@ salary in reverse order (salary 150000 is less than salary 10000). (Rich people 
     this.name = name;
   }
   
-  public double getSalary() { return salary; }
-  public void setSalary(double salary) { this.salary = salary; }
-  
-  public String getSSN() { return ssn; }
-  public void setSSN(String ssn) { this.ssn = ssn; }
-  
-  public boolean getPropertyChangeFired() { return propertyChangeFired; }
-  public void setPropertyChangeFired(boolean propertyChangeFired) { this.propertyChangeFired = propertyChangeFired; }
-
-  public int count() {
-    return count;
-  }
-  
-  public int getAge() {
-    return age;
-  }
-  
-  public String getName() {
-    return name;
-  }
-  
   public double getSalary() {
     return salary;
+  }
+  
+  public void setSalary(double salary) {
+    this.salary = salary;
   }
   
   public String getSSN() {
     return ssn;
   }
+  
   public void setSSN(String value) {
     String old = ssn;
     ssn = value;
@@ -94,10 +90,19 @@ salary in reverse order (salary 150000 is less than salary 10000). (Rich people 
     this.pcs.firePropertyChange("ssn", old, value);
     propertyChangeFired = true;
   }
+  
   public boolean getPropertyChangeFired() {
     return propertyChangeFired;
   }
+  
+  public void setPropertyChangeFired(boolean propertyChangeFired) {
+    this.propertyChangeFired = propertyChangeFired;
+  }
 
+  public int count() {
+    return count;
+  }
+  
   public double calculateBonus() {
     return salary * 1.10;
   }
@@ -110,14 +115,17 @@ salary in reverse order (salary 150000 is less than salary 10000). (Rich people 
     return age + 10;
   }
   
-  /*Ensure that Person.equals() returns true if two Person instances have the same name
-  and age (salary doesn't factor into equality comparison). Make sure no exceptions are
-  thrown from this method--anything "weird" should just return false.*/
   public boolean equals(Person other) {
-    return (this.name.equals(other.name) && this.age = other.age)
+    if (other instanceof Person) {
+      Person otherPerson = (Person)other;
+      if (otherPerson.name != null && this.name != null) {
+        return (this.name.equals(other.name) && this.age = other.age);
+      }
+    }
+    return false;
   }
 
-  public String tostring() {
+  public String toString() {
     return "{{FIXME}}";
   }
 
