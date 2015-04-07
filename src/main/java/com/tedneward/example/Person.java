@@ -11,33 +11,6 @@ public class Person implements Comparable<Person> {
   private boolean propertyChangeFired = false;
   private static int count;
   
-  public int compareTo(Person other) {
-    double salaryDifference = other.salary - salary;
-    
-    if (salaryDifference < 0) {
-      return -1;
-    } else if (salaryDifference > 0) {
-      return 1;
-    } else {
-      return 0;
-    }
-  }
-
-  public static class AgeComparator implements Comparator<Person> {
-    public int compare(Person person1, Person person2) {
-      return person1.age - person2.age;
-    }
-  }
-  
-  public ArrayList<Person> getNewardFamily() {
-    return new ArrayList<Person>() {{
-      add(new Person("Ted", 41, 250000));
-      add(new Person("Charlotte", 43, 150000));
-      add(new Person("Michael", 22, 10000));
-      add(new Person("Matthew", 15, 0));
-    }};
-  }
-  
   public Person() {
     this("", 0, 0.0d);
   }
@@ -124,7 +97,34 @@ public class Person implements Comparable<Person> {
     }
     return false;
   }
+  
+  public int compareTo(Person other) {
+    double salaryDifference = other.salary - salary;
+    
+    if (salaryDifference < 0) {
+      return -1;
+    } else if (salaryDifference > 0) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
 
+  public static class AgeComparator implements Comparator<Person> {
+    public int compare(Person person1, Person person2) {
+      return person1.age - person2.age;
+    }
+  }
+  
+  public static ArrayList<Person> getNewardFamily() {
+    return new ArrayList<Person>() {{
+      add(new Person("Ted", 41, 250000));
+      add(new Person("Charlotte", 43, 150000));
+      add(new Person("Michael", 22, 10000));
+      add(new Person("Matthew", 15, 0));
+    }};
+  }
+  
   public String toString() {
     return "{{FIXME}}";
   }
