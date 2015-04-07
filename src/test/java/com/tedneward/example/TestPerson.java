@@ -101,11 +101,11 @@ public class TestPerson {
     */
         
     ted.addPropertyChangeListener(new PropertyChangeListener() {
-+      public void propertyChange(PropertyChangeEvent pce) {
-+         assertEquals("ssn", pce.getPropertyName());
-+         assertEquals("", pce.getOldValue());
-+         assertEquals("012-34-5678", pce.getNewValue());
-+      }
+      public void propertyChange(PropertyChangeEvent pce) {
+         assertEquals("ssn", pce.getPropertyName());
+         assertEquals("", pce.getOldValue());
+         assertEquals("012-34-5678", pce.getNewValue());
+      }
      });
     
     // ============ YOUR CHANGES END HERE
