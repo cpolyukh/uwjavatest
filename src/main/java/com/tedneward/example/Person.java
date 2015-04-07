@@ -93,7 +93,7 @@ public class Person implements Comparable<Person> {
     if (other instanceof Person) {
       Person otherPerson = (Person)other;
       if (otherPerson.name != null && this.name != null) {
-        return (this.name.equals(other.name) && this.age == other.age);
+        return (this.name.equals(otherPerson.name) && this.age == otherPerson.age);
       }
     }
     return false;
