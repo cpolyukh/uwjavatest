@@ -89,7 +89,7 @@ public class Person implements Comparable<Person> {
   }
   
   @Override
-  public boolean equals(Person other) {
+  public boolean equals(Object other) {
     if (other instanceof Person) {
       Person otherPerson = (Person)other;
       if (otherPerson.name != null && this.name != null) {
