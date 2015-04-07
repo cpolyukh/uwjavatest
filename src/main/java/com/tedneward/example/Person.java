@@ -98,6 +98,11 @@ public class Person implements Comparable<Person> {
     return false;
   }
   
+  @Override
+  public int hashCode() {
+      return name.hashCode();
+  }
+  
   public int compareTo(Person other) {
     double salaryDifference = other.salary - salary;
     
