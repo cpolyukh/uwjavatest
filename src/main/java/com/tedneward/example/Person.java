@@ -88,6 +88,7 @@ public class Person implements Comparable<Person> {
     return age + 10;
   }
   
+  @Override
   public boolean equals(Person other) {
     if (other instanceof Person) {
       Person otherPerson = (Person)other;
@@ -103,6 +104,7 @@ public class Person implements Comparable<Person> {
       return name.hashCode();
   }
   
+  @Override
   public int compareTo(Person other) {
     double salaryDifference = other.salary - salary;
     
@@ -128,6 +130,7 @@ public class Person implements Comparable<Person> {
     }};
   }
   
+  @Override
   public String toString() {
     return "[Person name:" + name + " age:" + age + " salary:" + salary + "]";
   }
