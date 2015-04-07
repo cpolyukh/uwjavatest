@@ -116,10 +116,10 @@ public class Person implements Comparable<Person> {
   
   public static ArrayList<Person> getNewardFamily() {
     return new ArrayList<Person>() {{
+      add(new Person("Matthew", 15, 0));
+      add(new Person("Michael", 22, 10000));
       add(new Person("Ted", 41, 250000));
       add(new Person("Charlotte", 43, 150000));
-      add(new Person("Michael", 22, 10000));
-      add(new Person("Matthew", 15, 0));
     }};
   }
   
