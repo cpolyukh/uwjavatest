@@ -67,10 +67,6 @@ public class Person implements Comparable<Person> {
   public boolean getPropertyChangeFired() {
     return propertyChangeFired;
   }
-  
-  public void setPropertyChangeFired(boolean propertyChangeFired) {
-    this.propertyChangeFired = propertyChangeFired;
-  }
 
   public int count() {
     return count;
